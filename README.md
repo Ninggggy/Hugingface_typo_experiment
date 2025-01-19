@@ -8,9 +8,9 @@ This project represents the first systematic examination of naming-based vulnera
    - datasets
    - organizations
 ## Repository Structure
-   - dataset/: Contains the dataset used in this study, with models, datasets, organizations information gathered from Hugging Face.
-   - result/: Contains models, datasets, and organizations exhibiting potentially malicious behavior.
-   - Similarity caculation/:
+   - dataset /: Contains the dataset used in this study, with models, datasets, organizations information gathered from Hugging Face.
+   - result /: Contains models, datasets, and organizations exhibiting potentially malicious behavior.
+   - Similarity caculation /:
      - similarity_caculation_model: Research on the top 100 most downloaded models
      - similarity_caculation_dataset: Research on the top 100 most trending datasets
      - similarity_caculation_organization: Research on all organiztaions
