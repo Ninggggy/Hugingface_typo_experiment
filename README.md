@@ -4,9 +4,9 @@ This repository presents an experiment on a method developed to detect impersona
 ## Contribution
 This project represents the first systematic examination of naming-based vulnerabilities in AI model repositories, uncovering a widespread issue of typosquatting within the Hugging Face ecosystem. The analysis identified models and datasets with potential risks, specifically targeting the top 100 most downloaded models and the top 100 most trending datasets. At the organizational level, our research encompassed all organizations on Hugging Face. We compiled a table listing models, datasets, and organizations exhibiting potentially malicious behavior, emphasizing the need for enhanced governance and security measures within AI model hubs. All suspicious cases have been reported to Hugging Face for further investigation.
 ## Research objects
-   - models
-   - datasets
-   - organizations
+   - Models
+   - Datasets
+   - Organizations
 ## Repository Structure
    - `dataset/`: Contains the dataset used in this study, with models, datasets, organizations information gathered from Hugging Face.
    - `result/`: Contains models, datasets, and organizations exhibiting potentially malicious behavior.
