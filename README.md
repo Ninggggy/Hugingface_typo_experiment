@@ -20,8 +20,8 @@ README.md: Project overview, research context, and usage instructions
 # Data Collection
 Data for this project was gathered from Hugging Face, including models, datasets, organizations. 
 # Key Findings
-Models:Our analysis reveals 1,574 squatting models targeting top-100 downloads models, with 10.4% exhibiting suspicious behaviors and potential malicious intent through deceptive naming patterns and harmful content manipulation. 
-Datasets:We discovered 625 cases of typosquatting, where 42.2% demonstrated clear signs of intentional impersonation through misleading metadata and content similarities. 
-Organizations:We identified 302 instances of squatting behavior, among which 4.8% exhibited explicit malicious intent through active impersonation and deceptive practices, while others showed patterns of preemptive name registration for potential future exploitation.
-Contributing
+Models: Our analysis reveals 1,574 squatting models targeting top-100 downloads models, with 10.4% exhibiting suspicious behaviors and potential malicious intent through deceptive naming patterns and harmful content manipulation. 
+Datasets: We discovered 625 cases of typosquatting, where 42.2% demonstrated clear signs of intentional impersonation through misleading metadata and content similarities. 
+Organizations: We identified 302 instances of squatting behavior, among which 4.8% exhibited explicit malicious intent through active impersonation and deceptive practices, while others showed patterns of preemptive name registration for potential future exploitation.
+# Contributing
 Contributions to improve detection methods, expand datasets, or provide feedback are welcome. Please submit a pull request or reach out to the repository maintainers.
