@@ -8,3 +8,23 @@ models
 datasets
 organizations
 # Repository Structure
+dataset/: Contains the dataset used in this study, with models, datasets, organizations information gathered from Hugging Face.
+result/: Contains models, datasets, and organizations exhibiting potentially malicious behavior.
+Similarity caculation:
+similarity_caculation_model: research on the top 100 most downloaded models
+similarity_caculation_dataset: research on the top 100 most trending datasets
+similarity_caculation_organization: research on all organiztaions
+Similarity analysis:
+similarity_analysis_org:a quantitative analysis on organizations.
+README.md: Project overview, research context, and usage instructions
+# Data Collection
+Data for this project was gathered from Hugging Face, including models, datasets, organizations. 
+# Key Findings
+Distribution of Squatting Apps: We found 5,187 squatting apps for top 1000 apps.
+Prevalence of Cloning Apps: Among the 13,325 detected cloned apps, there were significant instances of cross-platform plagiarism.
+Impact on Users and Ecosystem: The large presence of squatting and cloning apps negatively affects user experience and platform trust, presenting potential security risks.
+Models:Our analysis reveals 1,574 squatting models targeting top-100 downloads models, with 10.4% exhibiting suspicious behaviors and potential malicious intent through deceptive naming patterns and harmful content manipulation. 
+Datasets:We discovered 625 cases of typosquatting, where 42.2% demonstrated clear signs of intentional impersonation through misleading metadata and content similarities. 
+Organizations:We identified 302 instances of squatting behavior, among which 4.8% exhibited explicit malicious intent through active impersonation and deceptive practices, while others showed patterns of preemptive name registration for potential future exploitation.
+Contributing
+Contributions to improve detection methods, expand datasets, or provide feedback are welcome. Please submit a pull request or reach out to the repository maintainers.
