@@ -12,17 +12,11 @@ from Levenshtein import distance as levenshtein_distance
 file_path = 'similar_names_and_info_final.csv'
 file_path2='huggingface_organizations_scraped_link.xlsx'
 def levenshtein_similarity(name1, name2):
-    # Calculate the Levenshtein distance between the two strings
     levenshtein_dist = levenshtein_distance(name1, name2)
-    
-    # Calculate the maximum length of the two strings
     name_length = max(len(name1), len(name2))
-    
-    # Normalize the Levenshtein distance to a similarity score
     similarity = 1 - (levenshtein_dist / name_length)
     
     return similarity
-
 
 
 def get_common_words():
@@ -65,16 +59,14 @@ def compete_unmatchscore(df):
         weblink2=str(row2['website_link']).replace("huggingface.co/", "").replace("twitter.com/", "").replace("github.com/", "").replace('http','').replace('/','').lower()
 
         match_score=0
-        # Comparison conditions
         social_match = (name1 in social2
                         or name2 in social1)
         social_matchand = (name1 in social2
                         and name2 in social1)            
 
-                # 计算Levenshtein距离
-        # name_length = max(len(name1), len(name2))
         curl_levenshtein_sim = levenshtein_similarity(name1,name2)
-        print(f"Comparing: {row1['title']} with {row2['title']}")
+        # print(f"Comparing: {row1['title']} with {row2['title']}")
+        
         title_match = SequenceMatcher(None,str(row1['title']).lower(), 
                             str(row2['title']).lower()).ratio() 
         
@@ -109,9 +101,9 @@ def compete_unmatchscore(df):
         
         if social_num==0 and web_num==0:
             if weblink1 and weblink2:
-                add_num=SequenceMatcher(None, name1,name2).ratio()*5
+                add_num=levenshtein_similarity(None, name1,name2)*5
             elif social1 and social2:
-                add_num=SequenceMatcher(None, social1,social2).ratio()*5
+                add_num=levenshtein_similarity(None, social1,social2)*5
             else:
                 add_num=0
         else:
@@ -119,15 +111,14 @@ def compete_unmatchscore(df):
         match_score=social_num+web_num+curl_num+title_num+add_num
 
                 # 惩罚因子：如果名称中包含过多通用词汇，降低得分
-        original_names = f"{name1} {name2}".lower()
-        print(original_names)
+
         common_words=get_common_words()
         common_words_count1 = sum(1 for word in common_words
                                if word in name1)
         common_words_count2=sum(1 for word in common_words
                                if word in name2)
         common_words_count=common_words_count2+common_words_count1
-        print(common_words_count)
+        
         if common_words_count > 1 and match_score <77.5:
             penalty = 0.8 ** common_words_count  # 指数衰减惩罚
             match_score *= penalty
@@ -157,8 +148,7 @@ for col in columns_to_convert:
 df= compete_unmatchscore(df)
 # 按总分降序排序
 result_df = df.sort_values(by='match_score', ascending=False)
-# Output the modified dataframe with 'unmatch_score' column
-output_excel_filename = 'analys_similar_names_and_info.csv'
+output_excel_filename = 'analys_similar_names_and_info2.csv'
 result_df.to_csv(output_excel_filename, index=False)
 
 print(f'Modified dataframe with unmatch scores has been saved to {output_excel_filename}')
